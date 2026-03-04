@@ -1,0 +1,6 @@
+@WisdomPetMedicine.RescueQuery.Api_HostAddress = http://localhost:5285
+
+GET {{WisdomPetMedicine.RescueQuery.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
