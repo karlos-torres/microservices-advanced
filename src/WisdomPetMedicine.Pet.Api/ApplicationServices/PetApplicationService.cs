@@ -107,6 +107,13 @@ namespace WisdomPetMedicine.Pet.Api.ApplicationServices
             pet.TransferToHospital();
         }
 
+        public async Task HandleCommandAsync(SetDateOfBirthCommand command)
+        {
+            var pet = await petRepository.GetAsync(PetId.Create(command.Id));
+            pet.SetDateOfBirth(PetDateOfBirth.Create(command.DateOfBirth));
+            await petRepository.UpdateAsync(pet);
+        }
+
         private async Task PublishIntegrationEventAsync(IIntegrationEvent integrationEvent, string connectionString, string topicName)
         {
             var jsonMessage = JsonConvert.SerializeObject(integrationEvent);
