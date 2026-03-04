@@ -33,6 +33,13 @@ namespace WisdomPetMedicine.Rescue.Api.Controllers
             return Ok();
         }
 
+        [HttpPut("phonenumber")]
+        public async Task<IActionResult> Put(SetAdopterPhoneNumberCommand command)
+        {
+            await adopterApplicationService.HandleCommandAsync(command);
+            return Ok();
+        }
+
         [HttpPost("approveAdoption")]
         public async Task<IActionResult> Put(ApproveAdoptionCommand command)
         {
